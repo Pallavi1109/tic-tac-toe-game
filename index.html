@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tic-Tac-Toe with AI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+
+    <div class="container">
+        <h1>Tic-Tac-Toe with AI</h1>
+
+        <div class="game-info">
+            <div class="score-display">
+                <div class="score-box">
+                    <h3>Player (X)</h3>
+                    <span id="playerScore">0</span>
+                </div>
+                <div class="score-box">
+                    <h3>AI (O)</h3>
+                    <span id="aiScore">0</span>
+                </div>
+                <div class="score-box">
+                    <h3>Draws</h3>
+                    <span id="drawScore">0</span>
+                </div>
+            </div>
+
+            <div class="game-mode">
+                <span>Play vs AI</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="aiToggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <div class="controls">
+            <button id="resetBtn">New Game</button>
+            <button id="resetScoreBtn">Reset Scores</button>
+        </div>
+    </div>
+
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Game Over</h2>
+            <p id="modalMessage">Player X wins!</p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmResetModal">
+        <div class="modal-content">
+            <h2>Reset Scores</h2>
+            <p>Are you sure you want to reset all scores?</p>
+            <button onclick="confirmResetScores()">Yes</button>
+            <button onclick="document.getElementById('confirmResetModal').style.display='none'">No</button>
+        </div>
+    </div>
+
+    <audio id="clickSound" src="https://cdn.pixabay.com/audio/2023/02/24/audio_a930e77cf0.mp3"></audio>
+    <audio id="winSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_1b8f1e147e.mp3"></audio>
+    <audio id="drawSound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_e2e35ef303.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
